@@ -56,9 +56,13 @@ namespace csharp_web_dev_lsn9exceptions
                 {
                     Console.WriteLine(student.Key + "\'s score is " + CheckFileExtension(student.Value));
                 }
-                catch (Exception e)
+                catch (ArgumentNullException e)
                 {
-                    Console.WriteLine("Error with " + student.Key + "\'s input: " + e.Message);
+                    Console.WriteLine("Error: " + student.Key + "\'s input is null.");
+                }
+                catch(ArgumentException e)
+                {
+                    Console.WriteLine("Error: " + student.Key + "\'s input is an empty string.");
                 }
             }
         }
